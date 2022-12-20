@@ -12,8 +12,12 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import Divider from '@mui/material/Divider';
+import Grid from '@mui/material/Grid';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = ['All Events |', 'Tickets |', 'My Events'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
@@ -34,12 +38,18 @@ function ResponsiveAppBar() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+  
+  const styles = {
+    customizeToolbar: {
+      minHeight: 36
+    }
+  };
 
   return (
-    <AppBar position="static">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+    <AppBar position="static" sx={{backgroundColor:'#1A1515', height:'300px'}}>
+      <Container> 
+        <Toolbar disableGutters sx={{minHeight: 46}}>
+          <CalendarMonthIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 , color:'green'}} />
           <Typography
             variant="h6"
             noWrap
@@ -55,7 +65,8 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            EP
+            
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -94,7 +105,7 @@ function ResponsiveAppBar() {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <CalendarMonthIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 , color:'green'}} />
           <Typography
             variant="h5"
             noWrap
@@ -111,9 +122,9 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            EP
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex'} , ml:'25%' }}>
             {pages.map((page) => (
               <Button
                 key={page}
@@ -154,7 +165,28 @@ function ResponsiveAppBar() {
               ))}
             </Menu>
           </Box>
+          
         </Toolbar>
+      </Container>
+      <Container>
+        <Box sx={{display:'flex', marginTop:'5%', marginLeft:'30%'}}>
+          <Grid xs={8} sx={{textAlign:'center'}}>
+          <Typography variant="h4">
+            10
+          </Typography>
+          <Typography>
+            Saturday
+          </Typography>
+          <Button variant="outlined" sx={{color:'White', borderColor:'green',  marginTop:'10px'}}>Create Event</Button>
+          </Grid>
+          <Divider orientation="vertical" flexItem sx={{background:"white", height:'100px', ml:'20px'}} />
+          <Grid sx={{marginLeft:'20px', marginTop:'5%'}} xs={4}>
+            <Typography>
+            No Event Created
+            </Typography>
+            </Grid>
+        </Box>
+        
       </Container>
     </AppBar>
   );

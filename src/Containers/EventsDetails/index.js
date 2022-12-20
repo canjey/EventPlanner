@@ -1,13 +1,13 @@
 import * as React from 'react';
 import Topbar from '../../Components/Homepage/Topbar.js'
-import Events from '../../Components/Homepage/Events.js'
+import About from '../../Components/EventsDetails/About.js'
 
 
-export default function HomePage() {
+export default function EventsDetails() {
     return (
         <>
         <Topbar />
-        <Events />
+        <About />
         </>
     )
 }
